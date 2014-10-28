@@ -1,0 +1,6 @@
+
+
+$("#cid_<%=@comment.id%>").hide();
+s=$('#commentcount_<%=@comment.rule_id%>').text();
+
+$('#commentcount_<%=@comment.rule_id%>').text(parseInt(s)-1);

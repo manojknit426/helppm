@@ -1,0 +1,8 @@
+<form method="post" action="/users/reg">
+	<%if error%>
+	<span style="color: red" ><%=error%></span>
+	<%end%>
+	<input type="password" name="admin_pass[password]" placeholder="enter admin password" />
+	
+	<input type="submit" />
+</form>

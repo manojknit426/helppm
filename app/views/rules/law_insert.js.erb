@@ -1,0 +1,10 @@
+<%if @law.errors.any?%>
+
+$("#title_error").text("* title already taken");
+
+<%else%>
+$('#rule').val('');
+$('#submit').val('add another rule');
+$("#title").val("");
+$("#title_error").text("");
+<%end%>

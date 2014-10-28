@@ -1,0 +1,17 @@
+<ul class="nav nav-stacked " style="max-height: 300px;overflow-y:scroll">
+ <span class="close" id="sugg_close">&times;</span>
+  <br/>
+  <%if @s.empty?%>
+
+<li>no suggestion</li>
+<%else%>
+<%@s.each do |s|%>
+ <li><a href="/rules/search?id=<%=s.title%>" class="nav nav-justified" data-remote="true" ><%=s.title%>:<span style="text-overflow:ellipsis"><%=s.heading%></span></a></li>
+
+
+
+<%end%>
+
+<%end%>
+</ul>
+

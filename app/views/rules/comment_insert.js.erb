@@ -1,0 +1,6 @@
+
+$('#text_<%=@comment.rule_id%>').val('');
+$('#<%=@comment.rule_id%>').append('<%=j render('comment')%>');
+s=$('#commentcount_<%=@comment.rule_id%>').text();
+
+$('#commentcount_<%=@comment.rule_id%>').text(parseInt(s)+1);

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  like: MyString
+  user_id: 1
+  rule_id: 1
+  who_like: MyString
+
+two:
+  like: MyString
+  user_id: 1
+  rule_id: 1
+  who_like: MyString

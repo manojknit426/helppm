@@ -1,0 +1,2 @@
+$('#home').append('<%= escape_javascript render('home') %>');
+$('.pagination').replaceWith('<%= escape_javascript will_paginate(@law) %>');

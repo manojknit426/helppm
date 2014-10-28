@@ -1,0 +1,53 @@
+  <%if @like%>
+ 
+ <%if @like.like=='liked'%>
+  $('#like_submit_<%=@like.rule_id%>').attr('disabled','disabled');
+     $('.like_submit_<%=@like.rule_id%>').css("color","green");
+ $('#dislike_submit_<%=@like.rule_id%>').removeAttr('disabled');
+     $('.dislike_submit_<%=@like.rule_id%>').css("color","blue");
+ v=$('#total_like_<%=@like.rule_id%>').text();
+ $('#total_like_<%=@like.rule_id%>').text(parseInt(v)+1);
+$('#you_like_<%=@like.rule_id%>').text('you');
+ <%end%>
+<%if @like.like=='disliked'%>
+  $('#dislike_submit_<%=@like.rule_id%>').attr('disabled','disabled');
+     $('.dislike_submit_<%=@like.rule_id%>').css("color","red");
+ $('#like_submit_<%=@like.rule_id%>').removeAttr('disabled');
+     $('.like_submit_<%=@like.rule_id%>').css("color","blue");
+ v=$('#total_dislike_<%=@like.rule_id%>').text();
+ $('#total_dislike_<%=@like.rule_id%>').text(parseInt(v)+1);
+$('#you_dislike_<%=@like.rule_id%>').text('you');
+ <%end%>
+ 
+<%end%>
+
+<% if @like_up%>
+
+<%if @like_up.like=='liked'%>
+  $('#like_submit_<%=@like_up.rule_id%>').attr('disabled','disabled');
+     $('.like_submit_<%=@like_up.rule_id%>').css("color","green");
+ $('#dislike_submit_<%=@like_up.rule_id%>').removeAttr('disabled');
+     $('.dislike_submit_<%=@like_up.rule_id%>').css("color","blue");
+ v=$('#total_like_<%=@like_up.rule_id%>').text();
+ $('#total_like_<%=@like_up.rule_id%>').text(parseInt(v)+1);
+
+s=$('#total_dislike_<%=@like_up.rule_id%>').text();
+ $('#total_dislike_<%=@like_up.rule_id%>').text(parseInt(s)-1);
+$("#you_dislike_<%=@like_up.rule_id%>").text('');
+$("#you_like_<%=@like_up.rule_id%>").text('you');
+ <%end%>
+<%if @like_up.like=='disliked'%>
+  $('#dislike_submit_<%=@like_up.rule_id%>').attr('disabled','disabled');
+     $('.dislike_submit_<%=@like_up.rule_id%>').css("color","red");
+ $('#like_submit_<%=@like_up.rule_id%>').removeAttr('disabled');
+     $('.like_submit_<%=@like_up.rule_id%>').css("color","blue");
+ v=$('#total_dislike_<%=@like_up.rule_id%>').text();
+ $('#total_dislike_<%=@like_up.rule_id%>').text(parseInt(v)+1);
+
+s=$('#total_like_<%=@like_up.rule_id%>').text();
+ $('#total_like_<%=@like_up.rule_id%>').text(parseInt(s)-1);
+$("#you_dislike_<%=@like_up.rule_id%>").text('you');
+$("#you_like_<%=@like_up.rule_id%>").text('');
+
+ <%end%>
+<%end%>

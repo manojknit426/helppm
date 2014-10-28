@@ -1,0 +1,22 @@
+<div class="container">
+	<% if sussces%>
+	<div class="well" style="color:green"><%=sussces%> </div>
+	 <%end%>
+	<%@law.each do |r|%>
+		<div class="row" style="border-bottom:1px #269ABC inset">
+		<div class="col-md-10">
+			
+			<span><%=r.title%>::</span><span class="h4 small"><%=r.heading%></span><br />
+			<%=r.law%>
+		</div>
+		<div class="col-md-1"><a href="/rules/update_rule?id=<%=r.id%>">update</a></div>
+		<div class="col-md-1"><a href="/rules/delete_rule?id=<%=r.id%>">delete</a></div>
+	</div>
+	
+	<%end%>
+	
+	
+	
+	
+	
+</div>

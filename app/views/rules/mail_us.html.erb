@@ -1,0 +1,73 @@
+<% provide(:title, 'contact') %>
+
+<div class="container ">
+     <div class="row">
+     	
+     	<div class="col-md-6 col-md-offset-3">
+      <form class="myfirstform" role="form" method="post" action="/rules/mail_send">
+	<%if sussces%>
+	<div class="well">
+		
+     <ul><li><span class="text-success"><%=sussces%></span></li>
+        	
+        	
+        </ul>
+     	
+		
+	</div><%end%>
+		
+		<div class="form-group">
+	        <label class="control-label">Name</label>
+			<div class="controls">
+			    <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" name="mail[name]" placeholder="Name" required="">
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="form-group">
+	        <label class="control-label">Email</label>
+			<div class="controls">
+			    <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+					<input type="email" class="form-control" id="email" name="mail[email]" placeholder="Email" required="">
+				</div>
+			</div>	
+		</div>
+		
+		<div class="form-group ">
+	        <label class="control-label">Subject</label>
+			<div class="controls">
+			    <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+					<input type="text" class="form-control" id="subject" name="mail[subject]" placeholder="subject" required="">
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="form-group ">
+	        <label class="control-label">Message</label>
+			<div class="controls">
+			    <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+					<textarea name="mail[message]" class="form-control " rows="4" cols="78" placeholder="Enter your message here" required=""></textarea>
+
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	      <div class="controls" style="margin-left: 70%;">
+		  
+	       <button type="submit" id="mybtn"  class="btn btn-primary" >Send Message</button>
+	        
+	      </div>
+		</form>
+		</div>
+		</div></div>
+

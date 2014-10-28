@@ -1,0 +1,21 @@
+                       <div class="row" style="margin-bottom: 2px;border:#CCCCCC 1px inset" id="cid_<%=@comment.id%>">
+		           					<div class="col-md-3 mar">
+		           					<a href="#">
+		           					<div class="col-md-4 mar">
+		           					<img class="head_img" /> 
+		           					</div>
+		           					<div class="col-md-8 mar"><%=current_user.name%></div>
+		           					</a>
+		           					</div>
+		           					<div class="col-md-8 mar" ><%= time_ago_in_words(@comment.created_at) %> ago  <br /><%=@comment.comment%></div>
+		           					<div class="col-md-1 close"><a href="/rules/delete_comment?id=<%=@comment.id%>" data-remote="true" data-confirm="Are you want to delete">&times;</a></div>
+		           					<script>
+	     $(document).ready(function () {
+  $.getJSON("https://graph.facebook.com/me?access_token=<%=current_user.oauth_token%>", function (data) {
+               $(".head_img").attr("src" ,'http://graph.facebook.com/'+data.id+'/picture?width=40&height=40');
+                  
+                   });
+                   });
+                          </script>
+	
+		           				</div>
