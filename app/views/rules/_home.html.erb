@@ -5,8 +5,11 @@
 				<%@law.each do |law|%>
 				
 				<div class="row" >
-				<div class="col-md-7 col-xs-12"> <span class="text-info">Aritcle  No:<%=law.title%></span>&nbsp; <span class="h4 small"><%=law.heading%></span><br /><<%=law.law%></div>
+				<div class="col-md-11 col-xs-12"> <span class="text-info">Aritcle  No:<%=law.title%></span>&nbsp; 
+					<span class="h4 small"><%=law.heading%></span><br /><span><%=law.law%></span>
+					</div>
 				</div>
+				
 					<div class="row" style="margin-top: 10px">
 						<% if current_user %>
 						

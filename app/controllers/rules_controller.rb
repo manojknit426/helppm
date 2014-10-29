@@ -123,7 +123,10 @@ def delete_comment
    respond_to do |wants|
     wants.html {redirect_to '/rules/home'  }
     wants.js
+  
   end
+else 
+  redirect_to "/404.html"
 end
 end
 
