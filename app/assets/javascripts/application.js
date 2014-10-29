@@ -32,4 +32,40 @@
 // require twitter/bootstrap/collapse
 //= require twitter/bootstrap/carousel
 // require twitter/bootstrap/affix
+$(document).ready(function() {
+
+				$("#searchsubmit").click(function() {
+					$("#load").text("loading....");
+				});
+
+				$("#sendto").keyup(function() {
+
+					$("#suggesion").text("loading....");
+					$("#suggesionPanel").css("z-index", "1");
+					$("#suggesion").show();
+
+					$("#sendtoform").submit();
+
+				});
+				$("#sendto").click(function() {
+					$("#suggesionPanel").css("z-index", "1");
+					$("#suggesion").show();
+				});
+				$("#sendto").click(function() {
+
+					$("#suggesion").show();
+				});
+				$("#main,#suggesion").click(function() {
+					$("#suggesionPanel").css("z-index", "-1");
+					$("#suggesion").hide();
+
+				});
+
+				$("#sugg_close").click(function() {
+					$("#suggesion").hide();
+					$("#suggesionPanel").css("z-index", "-1");
+				});
+
+			});
+
 

@@ -1,178 +1,210 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%=  yield(:title) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-<!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<link rel="icon" href="/law.png">
-  <style>
-	@media (max-width: 480px) { 
-		body{margin-top: 300px}
-		
-		 }
-	
-	.mar{
-		margin: 0px;
-		padding: 1px;
-	}
-	body{margin-top: 53px}
-</style>
-<script>
-	$(document).ready(function(){
-		
-	$(".load").click(function(){
-		$("#load").text("loading....");
-	})	;
-		
-  $("#sendto").keyup(function(){
-		
-			$("#suggesion").html("<span class='fa fa-spinner fa-spin'></span><span>loading</span>");
-			$("#suggesion").show();
-			$("#sendtoform").submit();
-			
-		});
-		  $("#sendto").click(function(){
-            	
-            	$("#suggesion").show();
-            });  $("#sendto").click(function(){
-            	
-            	$("#suggesion").show();
-            });    
-            $("#main,#suggesion").click(function(){
-            	
-            	$("#suggesion").hide();
-           
-            });
-        
-	$("#sugg_close").click(function(){
-		$("#suggesion").hide();
-	})	;
-	
+	<head>
+		<title><%= yield(:title) %></title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+		<link rel="icon" href="/law.png">
+		<style>
+			@media (max-width: 480px) {
+				body {
+					margin-top: 300px
+				}
 
-			
+			}
+
+			.mar {
+				margin: 0px;
+				padding: 1px;
+			}
+			body {
+				margin-top: 53px
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+
+				$("#searchsubmit").click(function() {
+					$("#load").text("loading....");
+				});
+
+				$("#sendto").keyup(function() {
+
+					$("#suggesion").text("loading....");
+					$("#suggesionPanel").css("z-index", "1");
+					$("#suggesion").show();
+
+					$("#sendtoform").submit();
+
+				});
+				$("#sendto").click(function() {
+					$("#suggesionPanel").css("z-index", "1");
+					$("#suggesion").show();
+				});
+				$("#sendto").click(function() {
+
+					$("#suggesion").show();
+				});
+				$("#main,#suggesion").click(function() {
+					$("#suggesionPanel").css("z-index", "-1");
+					$("#suggesion").hide();
+
+				});
+
+				$("#sugg_close").click(function() {
+					$("#suggesion").hide();
+					$("#suggesionPanel").css("z-index", "-1");
+				});
+
+			});
+
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+
+				<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+					<div class="container">
+						<!-- Brand and toggle get grouped for better mobile display -->
+
+						<div class="row">
+							<div class=" col-md-2 navbar-header">
+								
+						<form method="get" action="/rules/home" style="margin-top: 4px"><input type="submit" class="btn btn-link" value="home" /></form>
+									
+
+							</div>
+
+							<div class="col-md-6">
+								<form action="/rules/sendto_sugg" id="sendtoform" method="post" data-remote="true" >
+									<div class="input-group " style="margin-top: 4px" id="ss">
+										<input type="text"id="sendto" name="lawdata[title]" class="form-control" placeholder="Article no">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+
+									</div>
+								</form>
+
+							</div>
+							<div class="col-md-4">
+								<ul class="nav  nav-tabs navbar-left">
+
+									<li>
+										<form method="get" action="/rules/about" style="margin-top: 4px"><input type="submit" class="btn btn-link" value="about" /></form>
+									</li>
+									<li>
+										<form method="get" action="/rules/mail_us" style="margin-top: 4px"><input type="submit" class="btn btn-link" value="contact" /></form>
+									</li>
+
+									<% if current_user %>
+									<script>
+										$(document).ready(function () {
+$.getJSON("https://graph.facebook.com/me?access_token=<%= current_user.oauth_token%>", function (data) {
+	$(".head_img").attr("src" ,'http://graph.facebook.com/'+data.id+'/picture?width=40&height=40');
+
 	});
-	
-	
-</script>
-</head>
-<body>
-<div class="container">
-	<header>
-		
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                 <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-               
-               <div class="row">
-                 <div class=" col-md-2 navbar-header"> 
-                 <a class="navbar-brand" href="/rules/home">HelpPM</a>
-                    
-                  </div>
-    
-    
-      <div class="col-md-6">
-	<form action="/rules/sendto_sugg" id="sendtoform" method="post" data-remote="true" >
-<div class="input-group " style="margin-top: 4px" id="ss">
-  <input type="text"id="sendto" name="lawdata[title]" class="form-control" placeholder="Article no">
-  <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-  
-</div>
-	</form>
-	
-	</div>	
-      <div class="col-md-4">
-      <ul class="nav  nav-tabs navbar-left">
-     
-      <li><a href="/rules/about" style="margin-top: 4px"> About </a></li>
-       <li><a href="/rules/mail_us" style="margin-top: 4px">contact</a></li>
-       
-            <% if current_user %>
-	 <script>
-	     $(document).ready(function () {
-  $.getJSON("https://graph.facebook.com/me?access_token=<%=current_user.oauth_token%>", function (data) {
-               $(".head_img").attr("src" ,'http://graph.facebook.com/'+data.id+'/picture?width=40&height=40');
-                  
-                   });
-                
-                   });
-                          </script>
-               <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="head_img"  style="width:30px;height: 30px; border-radius: 2px;"/> <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            
-            <li><a href="/sessions/destroy"><span class="custom_a glyphicon glyphicon-off h4">  Logout</span></a></li>
-           </li>
-      </ul>
-    <% else %>
-   
-    <li><a href="/auth/facebook">login:<img src="/facebook.jpg"  style="width:30px;height: 30px; border-radius: 2px;"/></a></li>
- 
-  <% end %>
-  </ul>
-  </div>
-    
-  </div>
-</div>
-</nav>
+	});
+									</script>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="head_img"  style="width:30px;height: 30px; border-radius: 2px;"/> <span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu">
 
-<div class="col-md-6 col-md-offset-2">
-<div class="panel panel-default">
-<span id="suggesion" >  </span>
+											<li>
+												<a href="/sessions/destroy"><span class="custom_a glyphicon glyphicon-off h4"> Logout</span></a>
+											</li>
+									</li>
+								</ul>
+								<% else %>
+
+								<li>
+									<a href="/auth/facebook">login:<img src="/facebook.jpg"  style="width:30px;height: 30px; border-radius: 2px;"/></a>
+								</li>
+
+								<% end %>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</nav>
+
+			</header>
 		</div>
+
+		<div class="modal modal-md fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-md" style="width: 70%">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Article</h4>
+					</div>
+					<div class="modal-body " id="jj">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							Close
+						</button>
+
+					</div>
+				</div>
+			</div>
 		</div>
-      		</header>
-</div>
+		<div class="row" >
+			<div class="col-md-8 col-md-offset-4" id="load">
 
-<div class="modal modal-md fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md" style="width: 70%">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Article</h4>
-      </div>
-      <div class="modal-body " id="jj">
-       
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-       
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" >
-	<div class="col-md-8 col-md-offset-4" id="load">
-		
-	</div>
-</div>
-<div class="container" id="main">
-    <%= yield %>
-    </div>
-<div class="container">
-	<footer>
-		
-       <nav>
-       <hr />	
-    <ul class="nav nav-pills navbar-link" role="tablist">
-  <li ><a href="/rules/home">Home</a></li>
-  <li><a href="/rules/about">About</a></li>
-  <li><a href="/rules/mail_us">contact</a></li>
-   <%if session[:admin_id]%>
-        <li><a href="/rules/rule">add rule</a></li>
+			</div>
+		</div>
+		<div class="container">
+			<div class=" row">
+				<div id="suggesionPanel" class="col-md-5 col-md-offset-2" style="position: absolute;z-index: -1;">
+					<div class="panel panel-default">
+						<span id="suggesion" > </span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" id="main">
+			<%= yield %>
+		</div>
+		<div class="container">
+			<footer>
 
-      <li><a href="/rules/total_rule">update</a></li>
- <li><a href="/users/logout">logout</a></li>
-  <%else%>
-  <li><a href="/users/signin">Admin login</a></li>
- <%end%>
- </ul>
-       </nav>
- 
-	</footer>
-</div>
-</body>
+				<nav>
+					<hr />
+					<ul class="nav nav-pills navbar-link" role="tablist">
+						<li>
+					<form method="get" action="/rules/rule" ><input type="submit" class="btn btn-link" value="Home" /></form>
+					  </li> 
+						<li>
+					<form method="get" action="/rules/about" ><input type="submit" class="btn btn-link" value="About" /></form>
+					  </li>
+						<li>
+					<form method="get" action="/rules/mail_us" ><input type="submit" class="btn btn-link" value="Contact" /></form>
+					  </li>
+						<%if session[:admin_id]%>
+						<li>
+							<a href="/rules/rule">add rule</a>
+						</li>
+
+						<li>
+							<a href="/rules/total_rule">update</a>
+						</li>
+						<li>
+							<a href="/users/logout">logout</a>
+						</li>
+						<%else%>
+						<li>
+							<a href="/users/signin">Admin login</a>
+						</li>
+						<%end%>
+					</ul>
+				</nav>
+
+			</footer>
+		</div>
+	</body>
 </html>

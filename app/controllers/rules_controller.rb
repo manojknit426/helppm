@@ -118,6 +118,7 @@ def delete_comment
   id=params['id']
   
   @comment=Comment.find_by_id(id)
+   if current_user
   if current_user.id==@comment.user.id
    @comment=Comment.find_by_id(id).destroy
    respond_to do |wants|
@@ -127,6 +128,10 @@ def delete_comment
   end
 else 
   redirect_to "/404.html"
+
+end
+else
+   redirect_to "/404.html"
 end
 end
 
