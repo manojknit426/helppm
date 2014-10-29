@@ -27,7 +27,7 @@
 		
   $("#sendto").keyup(function(){
 		
-			$("#suggesion").text("loading....");
+			$("#suggesion").html("<span class='fa fa-spinner fa-spin'></span><span>loading</span>");
 			$("#suggesion").show();
 			$("#sendtoform").submit();
 			
@@ -159,7 +159,9 @@
   <li><a href="/rules/about">About</a></li>
   <li><a href="/rules/mail_us">contact</a></li>
    <%if session[:admin_id]%>
- <li><a href="/rules/total_rule">delete</a></li>
+        <li><a href="/rules/rule">add rule</a></li>
+
+      <li><a href="/rules/total_rule">update</a></li>
  <li><a href="/users/logout">logout</a></li>
   <%else%>
   <li><a href="/users/signin">Admin login</a></li>
