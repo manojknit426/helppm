@@ -5,8 +5,8 @@
 				<%@law.each do |law|%>
 				
 				<div class="row" >
-				<div class="col-md-11 col-xs-12"> <span class="text-info">Aritcle  No:<%=law.title%></span>&nbsp; 
-					<span class="h4 small"><%=law.heading%></span><br /><span><%=law.law%></span>
+				<div class="col-md-12 col-xs-12"><pre><span class="text-info">Aritcle  No:<%=law.title%></span> <span class="h4 small"><%=law.heading%></span><br /><span><%=law.law%></span>
+					</pre>
 					</div>
 				</div>
 				
@@ -124,12 +124,13 @@
 		           
 		     
 		           
-		           	<div class="col-md-8" id="<%=law.id%>">
+		           	<div class="col-md-8" id="<%=law.id%>" >
 		           		
-		           		no of comments:<span class="badge" id="commentcount_<%=law.id%>"><%=law.comments.size%></span>
+		           no of comments:<span class="badge" id="commentcount_<%=law.id%>"><%=law.comments.size%></span>
 		           		
 		           		<%law.comments.each do |c|%>
-		           				<div class="row" style="margin-bottom: 2px;border:#CCCCCC 1px inset" id="cid_<%=c.id%>" >
+		           				
+		           				<div class="row"  id="cid_<%=c.id%>" >
 		           					<div class="col-md-3 mar"  >
 		           						
 		           						<%if c.user%>
@@ -153,7 +154,7 @@
 		           				
 		           					<%end%>
 		           					</div>
-		           					<div class="col-md-8 mar"  ><span class="text-primary"> <%= time_ago_in_words(c.created_at) %> ago </span> <br /><%=c.comment%></div>
+		           					<div class="col-md-8 mar"  ><span class="text-primary"> <%= time_ago_in_words(c.created_at) %> ago </span> <br /><%=c.comment%></pre></div>
 		           					
 		           					<%if current_user && current_user.id==c.user.id%>
 		           					<div class="col-md-1 close"><a href="/rules/delete_comment?id=<%=c.id%>" data-remote="true" data-confirm="Are you want to delete">&times;</a></div>
