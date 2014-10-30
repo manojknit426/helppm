@@ -118,7 +118,7 @@ $.getJSON("https://graph.facebook.com/me?access_token=<%= current_user.oauth_tok
 								<% else %>
 
 								<li>
-									<a href="/auth/facebook">login:<img src="/facebook.jpg"  style="width:30px;height: 30px; border-radius: 2px;"/></a>
+									<a href="/auth/facebook">Login via <img src="/facebook.jpg"  style="width:30px;height: 30px; border-radius: 2px;"/></a>
 								</li>
 
 								<% end %>
@@ -187,18 +187,18 @@ $.getJSON("https://graph.facebook.com/me?access_token=<%= current_user.oauth_tok
 					  </li>
 						<%if session[:admin_id]%>
 						<li>
-							<a href="/rules/rule">add rule</a>
+							<a href="/rules/rule">Add Rule</a>
 						</li>
 
 						<li>
-							<a href="/rules/total_rule">update</a>
+							<a href="/rules/total_rule">Update</a>
 						</li>
 						<li>
-							<a href="/users/logout">logout</a>
+							<a href="/users/logout">Logout</a>
 						</li>
 						<%else%>
 						<li>
-							<a href="/users/signin">Admin login</a>
+							<a href="/users/signin">Admin Login</a>
 						</li>
 						<%end%>
 					</ul>
