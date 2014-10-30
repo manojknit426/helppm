@@ -11,9 +11,7 @@
 				body {
 					margin-top: 300px
 				}
-
 			}
-
 			.mar {
 				margin: 0px;
 				padding: 1px;
@@ -24,41 +22,31 @@
 		</style>
 		<script>
 			$(document).ready(function() {
-
 				$("#searchsubmit").click(function() {
 					$("#load").text("loading....");
 				});
-
 				$("#sendto").keyup(function() {
-
 					$("#suggesion").text("loading....");
 					$("#suggesionPanel").css("z-index", "1");
 					$("#suggesion").show();
-
 					$("#sendtoform").submit();
-
 				});
 				$("#sendto").click(function() {
 					$("#suggesionPanel").css("z-index", "1");
 					$("#suggesion").show();
 				});
 				$("#sendto").click(function() {
-
 					$("#suggesion").show();
 				});
 				$("#main,#suggesion").click(function() {
 					$("#suggesionPanel").css("z-index", "-1");
 					$("#suggesion").hide();
-
 				});
-
 				$("#sugg_close").click(function() {
 					$("#suggesion").hide();
 					$("#suggesionPanel").css("z-index", "-1");
 				});
-
 			});
-
 		</script>
 	</head>
 	<body>
@@ -72,7 +60,7 @@
 						<div class="row">
 							<div class=" col-md-2 navbar-header">
 								
-						<form method="get" action="/rules/home" style="margin-top: 4px"><input type="submit" class="btn btn-link" value="home" /></form>
+						<form method="get" action="/rules/home" style="margin-top: 4px"><input type="submit" class=" navbar-brand btn btn-link" value="HelpPm" /></form>
 									
 
 							</div>
@@ -102,7 +90,6 @@
 										$(document).ready(function () {
 $.getJSON("https://graph.facebook.com/me?access_token=<%= current_user.oauth_token%>", function (data) {
 	$(".head_img").attr("src" ,'http://graph.facebook.com/'+data.id+'/picture?width=40&height=40');
-
 	});
 	});
 									</script>
@@ -177,7 +164,7 @@ $.getJSON("https://graph.facebook.com/me?access_token=<%= current_user.oauth_tok
 					<hr />
 					<ul class="nav nav-pills navbar-link" role="tablist">
 						<li>
-					<form method="get" action="/rules/rule" ><input type="submit" class="btn btn-link" value="Home" /></form>
+					<form method="get" action="/rules/home" ><input type="submit" class="btn btn-link" value="Home" /></form>
 					  </li> 
 						<li>
 					<form method="get" action="/rules/about" ><input type="submit" class="btn btn-link" value="About" /></form>
