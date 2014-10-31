@@ -22,11 +22,11 @@
 		</style>
 		<script>
 			$(document).ready(function() {
-				$("#searchsubmit").click(function() {
-					$("#load").text("loading....");
+				$(".load").click(function() {
+					$("#load").html("<span style='z-index:1'>loading...</span>");
 				});
 				$("#sendto").keyup(function() {
-					$("#suggesion").text("loading....");
+					$("#suggesion").html("<span <i class='fa fa-spinner fa-spin' ></i></span> loading...");
 					$("#suggesionPanel").css("z-index", "1");
 					$("#suggesion").show();
 					$("#sendtoform").submit();
