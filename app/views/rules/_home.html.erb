@@ -1,18 +1,11 @@
-<style>
-	
-	.t { color:red;
-		text-align: justify;
-    -moz-text-align-last: right; /* Code for Firefox */
-     text-align-last: right;
-	}
-</style>
+
 			
 				<%if @law%>
 				
 				<%@law.each do |law|%>
 				
 				<div class="row" >
-				<div class="col-md-12 col-xs-12"><pre ><span class="text-info"  style="z-index: 0;">Aritcle  No:<span style="word-break: normal"><%=law.title%></span></span> <span class="h4 small"><%=law.heading%></span><br /><span style="word-break:normal" ><%=law.law%></span>
+				<div class="col-md-12 col-xs-12"><pre ><span class="text-info"  style="z-index: 0;">Aritcle  No:<span ><%=law.title%></span></span> <span class="h4 small" style="word-break: normal"><%=law.heading%></span><br /><span style="word-break:normal" ><%=law.law%></span>
 					</pre>
 					</div>
 				</div>
