@@ -5,7 +5,7 @@
 				
 				
 				<div class="row" >
-				<div class="col-md-11"><span class="text-info">Artile no:<%=@law.title%></span>&nbsp; <span class="h4 small"><%=@law.heading%></span><br /> <%=@law.law%></div>
+				<div class="col-md-11"><pre><span class="text-info">Artile no:<%=@law.title%></span>&nbsp; <span class="h4 small"><%=@law.heading%></span><br /> <%=@law.law%></pre></div>
 				</div>
 					<div class="row" style="margin-top: 10px">
 						<% if current_user %>
@@ -115,7 +115,7 @@
 		           		no of comments:<span class="badge" id="commentcount_<%=@law.id%>"><%=@law.comments.size%></span>
 		           		
 		           		<%@law.comments.each do |c|%>
-		           				<div class="row" style="margin-bottom: 2px;border:#CCCCCC 1px inset" id="cid_<%=c.id%>" >
+		           				<div class="row" style=" border: 1px 1px 1px 0px solid #a1a1a1;margin-left:1px; padding: 2px 2px;background: #ddd;" id="cid_<%=c.id%>" >
 		           					<div class="col-md-3 "  style="margin: 0px;padding: 1px">
 		           						
 		           						<%if c.user%>
