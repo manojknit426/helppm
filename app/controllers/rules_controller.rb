@@ -127,11 +127,11 @@ def delete_comment
   
   end
 else 
-  redirect_to "/404.html"
+  redirect_to "/422.html"
 
 end
 else
-   redirect_to "/404.html"
+   redirect_to "/422.html"
 end
 end
 
@@ -168,7 +168,7 @@ end
 def sendto_sugg
   id=params[:lawdata][:title]
   
-@s=Rule.where( 'title like ?', id+"%")
+@s=Rule.where( 'title like ?', id+"%").paginate(:page => params[:page], :per_page =>5)
 respond_to do |format|
       format.html { redirect_to '/rules/home' }
       format.js
